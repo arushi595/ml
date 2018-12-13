@@ -13142,7 +13142,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -13214,23 +13214,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -13257,11 +13257,11 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Statistics for Boston housing dataset:
 
-Minimum price: $105000.0
+Minimum price: $454342.9447852761
 Maximum price: $1024800.0
 Mean price: $454342.9447852761
 Median price $438900.0
-Standard deviation of prices: $165340.27765266784
+Standard deviation of prices: $165171.13154429474
 </pre>
 </div>
 </div>
@@ -13439,7 +13439,7 @@ Standard deviation of prices: $165340.27765266784
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: The model has captured the variation of the target variable as the value of coefficient of determination is .923 which means 92 percent of variance in y is predictable from X</strong></p>
+<p><strong>Answer:  R2 is a measure of how good a fit the model is for all our data points as it captures the distance of the data points from the regression line. Since r2 is very high, almost close to 1 (.92) we can say the model captures this variation well</strong></p>
 
 </div>
 </div>
@@ -13706,7 +13706,9 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: Machine learning algorithms have certain parameters which can be tweaked to get better results. Eg while making a decision tree we may need to come up with a depth to get the best results. Too less and the model will be too simplistic. Too much and we may end up with an overfitted model. To try each param manually will be exhausting, so we use grid search to fine tune these parameters of the machine learning model. </strong></p>
+<p><strong>Answer: Machine learning algorithms have certain parameters which can be tweaked to get better results. Eg while making a decision tree we may need to come up with a depth to get the best results. Too less and the model will be too simplistic. Too much and we may end up with an overfitted model. To try each param manually will be exhausting, so we use grid search to fine tune these parameters of the machine learning model. 
+We pass an estimator and different values of it's hyper parameters to this algorithm. We also pass a performance metric to determine the performance of the estimator for all the possible combinations of the hyperparameters. 
+The grid search will calculate the performance for all possible combinations. The grid here is the matrix of all the hyper param combinations. The grid search will look for the best possbile combination of hyperparameters and output this optimal combination.</strong></p>
 
 </div>
 </div>
@@ -13729,8 +13731,9 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: in K fold CV training technique we split the data into K sets. We use one set as a test data set and reminaing K-1 sets as training data set. We do this iteratively, thus we get to train our model K times. Each time picking a random subset as test and rest as train. We can them average out the results of these K models to get a more accurate result. 
-We do a grid search with cross validation to optimise the value of the parameters over the entire set, if we do only one test/train split we can end up with params which are optimised for only a part of the data, this means when confronted with unseen data the model will perform poorly </strong></p>
+<p><strong>Answer: in K fold CV training technique we split the training data into K sets. We use one set as a validation data set and reminaing K-1 sets as training data set. We do this iteratively, thus we get to train our model K times. Each time picking a random subset as validation and rest as train. We use the average cross-validation score to check the performance of the model. 
+We do a grid search with cross validation to arrive at the optimal the value of the parameters over the entire set, if we do only one test/train split we can end up with params which are optimised for only a part of the data, this means when confronted with unseen data the model will perform poorly 
+Once we have the correct values through grid search and validating multiple times we finally test our model on the untouched test data</strong></p>
 
 </div>
 </div>
@@ -14037,7 +14040,9 @@ Range in prices: $73,357.39
         2) Considering only 3 features makes this model too simplistic a very important factor should be location of the house. Houses close to commercial areas will increase prices. Also 4 small rooms vs 3 big rooms, houses with more area will have more value
         3) 73K dollars is a very large fluctuation on 400K average price. Hence this is not a robust model
         4) Factors driving prices in a rural area are very different from urban areas. Hence the model we build for urban areas keeping certain features in mind will not be aplicable for rural areas. 
-        5) Prices of an individual house are definitely influenced by the kind of neighborhood it is in. A lot of factors regarding the house itself need to be considered but neighborhood matters a lot</strong></p>
+        5) Prices of an individual house are definitely influenced by the kind of neighborhood it is in. A lot of factors regarding the house itself need to be considered but neighborhood matters a lot
+        Hence we should not use this model in the real world
+        </strong></p>
 
 </div>
 </div>
